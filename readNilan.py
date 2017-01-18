@@ -31,7 +31,7 @@ with open('nilan_modbus.csv', encoding='utf8') as csvfile:
 			lst = list(strRet)
 			strRet = lst[1] + lst[0]
 		elif row['Scale'] == "100":
-			strRet = instrument.read_register(int(row['Address']), numberOfDecimals=2, functioncode=fc)
+			strRet = instrument.read_register(int(row['Address']), numberOfDecimals=2, functioncode=fc, signed=signed_number)
 		else:
 			strRet = instrument.read_register(int(row['Address']), numberOfDecimals=0, functioncode=fc)
 		if row['Unit'] == "%" or row['Unit'] == "°C":		
